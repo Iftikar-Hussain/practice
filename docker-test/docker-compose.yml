@@ -1,0 +1,16 @@
+version: '2.1'
+services: 
+  test-python-app:
+   build: . 
+#    context: Dockerfile
+   image: test-py:latest
+   restart: unless-stopped
+   container_name: python-test-app
+   ports:
+    - 8000:8000
+   networks: 
+    - python-test
+
+networks:
+  python-test:
+    driver: bridge
